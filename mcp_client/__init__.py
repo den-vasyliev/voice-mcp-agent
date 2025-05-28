@@ -93,7 +93,7 @@ class MCPServerStdIO(MCPServer):
         logger.info(f"call_tool: {self.name}")
         return self.session.call_tool(tool_name, arguments=arguments or {})
 
-    # Define MCPClient class here since client.py doesn't exist
+# Define MCPClientWithAuth class here since client.py doesn't exist
 class MCPClientWithAuth:
     def __init__(self, url, auth_type, secret_key, headers=None, name=None):
         """
@@ -131,8 +131,6 @@ class MCPClientWithAuth:
             cache_tools_list=True,
             name=name,
             middleware=middleware
-
-
         )
 
 __all__ = ["MCPServerStdIO", "MCPClientWithAuth", "MCPServerSse", "MCPServer", "HMACAuth", "create_auth_middleware"]
