@@ -5,3 +5,4 @@ livekit-plugins-elevenlabs~=1.0
 mcp==1.7.1
 pytest
 PyYAML
+requests
