@@ -22,9 +22,7 @@ uv:
 	@curl -Ls https://astral.sh/uv/install.sh | sh
 
 venv:
-	python3 -m venv venv
-	@echo "Virtual environment created in ./venv"
-	@echo "To activate, run: source venv/bin/activate"
+	uv venv .venv
 
 install:
 	uv pip install -r requirements.txt
@@ -37,8 +35,8 @@ certs-macos:
 certs-linux:
 	sudo apt-get update && sudo apt-get install -y ca-certificates
 
-run:
-	python main.py console
+run: venv install
+	uv run main.py console
 
 test:
 	@# SSL certificate check for macOS
