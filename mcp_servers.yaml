@@ -28,13 +28,24 @@ servers:
   #     env_var: ED210_SECRET
   #   tools: [run_promotion]
   # K8S A2A agent configuration using KAgent https://kagent.dev/
-    - name: kagent-a2a-agent
+    - name: kagent-k8s-agent
       type: a2a
       url: http://localhost:8082/api/a2a/kagent/k8s-agent
       auth:
         type: none
         env_var: K8S_A2A_JWT
-
+    - name: kagent-istio-agent
+      type: a2a
+      url: http://localhost:8082/api/a2a/kagent/istio-agent
+      auth:
+        type: none
+        env_var: K8S_A2A_JWT
+    - name: kagent-helm-agent
+      type: a2a
+      url: http://localhost:8082/api/a2a/kagent/istio-agent
+      auth:
+        type: none
+        env_var: K8S_A2A_JWT
   # # K8S A2A agent configuration
   # - name: k8s-a2a-agent
   #   type: a2a
