@@ -1,11 +1,17 @@
 # The 'tools' field is for documentation only; it does NOT restrict which tools are loaded from the server.
 # All tools provided by the server will be available to the agent unless you implement filtering in the code.
 servers:
-  - name: docker-mcp-server
-    type: mcp
-    command: docker
-    args: ["run", "-i", "--rm", "alpine/socat", "STDIO", "TCP:host.docker.internal:8811"]
-    tools: [docker, get_current_time]
+  # - name: docker-mcp-server-sdio
+  #   type: mcp
+  #   command: docker
+  #   args: ["run", "-i", "--rm", "alpine/socat", "STDIO", "TCP:host.docker.internal:8811"]
+  #   tools: [docker, get_current_time]
+
+  # - name: docker-mcp-server
+  #   type: mcp
+  #   command: docker
+  #   args: ["run", "-i", "--rm", "alpine/socat", "STDIO", "TCP:host.docker.internal:8811"]
+  #   tools: [docker, get_current_time]
 
   # - name: github-mcp-server
   #   type: mcp
@@ -20,15 +26,14 @@ servers:
   #   auth:
   #     type: secret_key
   #     env_var: ED210_SECRET
-  #   tools: [run_promotion] 
-  
+  #   tools: [run_promotion]
   # K8S A2A agent configuration using KAgent https://kagent.dev/
-  #  - name: local-a2a-agent
-  #    type: a2a
-  #    url: http://localhost:8082/api/a2a/kagent/k8s-agent
-  #    auth:
-  #      type: none
-  #      env_var: K8S_A2A_JWT
+    - name: kagent-a2a-agent
+      type: a2a
+      url: http://localhost:8082/api/a2a/kagent/k8s-agent
+      auth:
+        type: none
+        env_var: K8S_A2A_JWT
 
   # # K8S A2A agent configuration
   # - name: k8s-a2a-agent

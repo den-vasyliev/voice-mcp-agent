@@ -39,7 +39,7 @@ async def entrypoint(ctx: JobContext):
         if server_type == "mcp":
             server = await create_mcp_server(conf, headers, server_name, server_url)
         elif server_type == "a2a":
-            server = await create_a2a_server(conf, headers, server, server_name, server_url)
+            server = await create_a2a_server(conf, headers, server_name, server_url)
         else:
             raise ValueError(f"Unknown server type: {server_type}")
 
@@ -85,7 +85,7 @@ async def entrypoint(ctx: JobContext):
                 raise
 
 
-async def create_a2a_server(conf, headers, server, server_name, server_url):
+async def create_a2a_server(conf, headers, server_name, server_url):
     # Only set Authorization header if auth is enabled in config
     env_var_name = conf.get("auth", {}).get("env_var")
     if env_var_name:
