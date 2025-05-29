@@ -42,7 +42,7 @@ servers:
         env_var: K8S_A2A_JWT
     - name: kagent-helm-agent
       type: a2a
-      url: http://localhost:8082/api/a2a/kagent/istio-agent
+      url: http://localhost:8082/api/a2a/kagent/helm-agent
       auth:
         type: none
         env_var: K8S_A2A_JWT
