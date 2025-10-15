@@ -19,10 +19,10 @@ servers:
   # K8S A2A agent configuration
   - name: local-a2a-agent
     type: a2a
-    url: https://a2a.mockee.me/api/a2a/kagent/k8s-agent
-    auth:
-      type: jwt
-      env_var: K8S_A2A_JWT
+    url: https://quietly-just-ferret.ngrok-free.app/api/a2a/kagent/k8s-agent
+    # auth:
+    #   type: jwt
+    #   env_var: K8S_A2A_JWT
   # # K8S A2A agent configuration
   # - name: k8s-a2a-agent
   #   type: a2a

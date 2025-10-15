@@ -37,7 +37,8 @@ async def filtered_prepare_dynamic_tools(mcp_servers, allowed_tools_map, convert
                 async def on_invoke_tool(context, input_json, _server=server, _skill=skill):
                     args = json.loads(input_json) if input_json else {}
                     prompt = args.get("prompt", "")
-                    return send_a2a_task(_server.base_url, prompt, headers=_server.headers)
+                    # Use the async method directly instead of the legacy sync function
+                    return await _server.send_task_async(prompt)
                 ft = FunctionTool(
                     name=re.sub(r'[^a-zA-Z0-9_-]', '_', skill.get("name", skill.get("id", "unknown_skill"))),
                     description=skill.get("description", ""),
